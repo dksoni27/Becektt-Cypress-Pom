@@ -1,0 +1,163 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T08:51:43.798Z",
+    "end": "2026-02-03T08:52:28.211Z",
+    "duration": 44413,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c552bb9b-c3ea-4433-bfa0-e0aeaf0d4511",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\login\\login.cy.js",
+      "file": "cypress\\e2e\\beckett\\login\\login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c1b6497-f491-431c-b746-a9777fa7b5d4",
+          "title": "Beckett Login Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "login successfully with valid credentials",
+              "fullTitle": "Beckett Login Test login successfully with valid credentials",
+              "timedOut": null,
+              "duration": 16057,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('@users').then(users => {\n  cy.get('#loginEmail').type(users.validUser.email);\n  cy.get('#loginPassword').type(users.validUser.password);\n});\ncy.get('#btn_login').click();\ncy.url({\n  timeout: 10000\n}).should('not.include', '/login');\ncy.contains('Logout', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "e79d7db7-7ff3-4ce6-ae1c-152dc6981044",
+              "parentUUID": "8c1b6497-f491-431c-b746-a9777fa7b5d4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "stay logged in with Remember Me checked",
+              "fullTitle": "Beckett Login Test stay logged in with Remember Me checked",
+              "timedOut": null,
+              "duration": 18558,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('@users').then(users => {\n  cy.get('#loginEmail').type(users.validUser.email);\n  cy.get('#loginPassword').type(users.validUser.password);\n});\ncy.get('.form-check-label').click();\ncy.get('#btn_login').click();\ncy.contains('Logout', {\n  timeout: 10000\n}).should('be.visible');\ncy.reload();\ncy.contains('Logout', {\n  timeout: 10000\n}).should('be.visible');",
+              "err": {},
+              "uuid": "917e3754-dbb3-4f42-b30d-7a75652bc4ca",
+              "parentUUID": "8c1b6497-f491-431c-b746-a9777fa7b5d4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "display error for incorrect email or password",
+              "fullTitle": "Beckett Login Test display error for incorrect email or password",
+              "timedOut": null,
+              "duration": 6700,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('@users').then(users => {\n  cy.get('#loginEmail').type(users.invalidUser.email);\n  cy.get('#loginPassword').type(users.invalidUser.password);\n});\ncy.get('#btn_login').click();\ncy.contains(\"We're sorry, but the email or password you entered is incorrect\").should('be.visible');",
+              "err": {},
+              "uuid": "51c980fd-7753-4722-8e76-433369279663",
+              "parentUUID": "8c1b6497-f491-431c-b746-a9777fa7b5d4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "show error when fields are empty",
+              "fullTitle": "Beckett Login Test show error when fields are empty",
+              "timedOut": null,
+              "duration": 2715,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('/login');\ncy.get('#btn_login').should('be.disabled');",
+              "err": {},
+              "uuid": "db6e5a47-1402-495e-8945-22bf7bc560df",
+              "parentUUID": "8c1b6497-f491-431c-b746-a9777fa7b5d4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e79d7db7-7ff3-4ce6-ae1c-152dc6981044",
+            "917e3754-dbb3-4f42-b30d-7a75652bc4ca",
+            "51c980fd-7753-4722-8e76-433369279663",
+            "db6e5a47-1402-495e-8945-22bf7bc560df"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 44030,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T08:53:11.744Z",
+    "end": "2026-02-03T08:56:48.518Z",
+    "duration": 216774,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "a5f8e661-5bbe-4531-857b-351fce5c7c85",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\bca\\bca.cy.js",
+      "file": "cypress\\e2e\\beckett\\bca\\bca.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eb0877df-e42f-4c20-94a6-a39c2b716903",
+          "title": "Beckett bca order  Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "BCA search",
+              "fullTitle": "Beckett bca order  Test BCA search",
+              "timedOut": null,
+              "duration": 76626,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.beckett.com/bca\");\ncy.get('.container > .ServiceSlot > .serSec > .sendBtn > .currency_alert').click();\n//login verification \ncy.url().should('include', '/bca/add');\n//creat a order \ncy.get('select[name=\"service_term\"]').select('2').should('have.value', '2');\ncy.wait(8000);\n// search 1871 Boston Red Stockings Wright Cabinets #NNO Harry Schafer\ncy.get('input[name=\"search_text\"]').should('be.visible').type('1871 Boston Red Stockings Wright Cabinets #NNO Harry Schafer');\ncy.wait(8000);\ncy.get('#search_submit').should('be.visible').click();\ncy.wait(8000);\ncy.get('li[title=\"1871 Boston Red Stockings Wright Cabinets #NNO Harry Schafer\"]').should('be.visible');\ncy.get('img[alt=\"Remove\"]').first().click();\n/// search 2009\ncy.get('input[name=\"search_text\"]').should('be.visible').type('2009');\ncy.wait(8000);\ncy.get('#search_submit').should('be.visible').click();\ncy.wait(8000);",
+              "err": {},
+              "uuid": "4d79904e-bca8-4326-9166-be762089b6e9",
+              "parentUUID": "eb0877df-e42f-4c20-94a6-a39c2b716903",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "BCA order place",
+              "fullTitle": "Beckett bca order  Test BCA order place",
+              "timedOut": null,
+              "duration": 109068,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.beckett.com/bca\");\ncy.get('.container > .ServiceSlot > .serSec > .sendBtn > .currency_alert').click();\n//login verification \ncy.url().should('include', '/bca/add');\n//creat a order \ncy.get('select[name=\"service_term\"]').select('2').should('have.value', '2');\ncy.wait(8000);\ncy.get('a.btn-blue').contains('Add Item').click();\ncy.get('.btn-blue-large > span').click();\ncy.get('#grade_type_raw').should('be.visible').should('not.be.checked');\ncy.get('#grade_type_graded').should('be.visible').should('not.be.checked').click();\ncy.get('select[name=\"grade_company\"]').should('be.visible').select('BGS Grade');\ncy.get('select[name=\"grade_card_condition\"]').should('be.visible');\ncy.get('input[name=\"card_serial_number_start\"]').should('be.visible').type('1234');\ncy.get('input[name=\"card_serial_number_end\"]').should('be.visible').type('12345');\ncy.get('input[name=\"serial_num\"]').should('be.visible').type('12345');\ncy.get('#custom_description').should('be.visible').type('it is test order');\ncy.get('button[class=\"btn-blue\"]').should('be.visible').click();\ncy.get('.btn-blue-large').should('be.visible').click();\n// payment page verification \ncy.get('#coupon_code').should('be.visible');\ncy.get('#gift_code').should('be.visible');\ncy.get('.btn-red').should('be.visible');\ncy.contains('Agree to Terms and Disclaimer').should('be.visible');\ncy.get('#terms').click();\ncy.get('#checkout_paypal').should('be.visible');\ncy.get('#checkout').should('be.visible').click();",
+              "err": {},
+              "uuid": "d0994265-4766-4ea5-9783-cdc844628ccb",
+              "parentUUID": "eb0877df-e42f-4c20-94a6-a39c2b716903",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4d79904e-bca8-4326-9166-be762089b6e9",
+            "d0994265-4766-4ea5-9783-cdc844628ccb"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 185694,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

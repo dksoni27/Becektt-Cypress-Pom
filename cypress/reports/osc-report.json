@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T09:00:33.876Z",
+    "end": "2026-02-03T09:00:58.015Z",
+    "duration": 24139,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7be03fac-d6e2-4aba-9a43-42491fc07c1d",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\grading\\osc.cy.js",
+      "file": "cypress\\e2e\\beckett\\grading\\osc.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a1e6f27e-fb59-4660-aa5b-57301050f850",
+          "title": "Card Grading Submission - Base Service",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "User submits a card for grading using base service",
+              "fullTitle": "Card Grading Submission - Base Service User submits a card for grading using base service",
+              "timedOut": null,
+              "duration": 24007,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.beckett.com');\ncy.get('.align-self-center > .btn-primary').click();\ncy.get('[href=\"/submit/cards/service\"] > .description-container > .bottom-section > .button-title').should('be.visible').click();\ncy.get('.close').click();\ncy.get('.col-xxl-6 > .osf_flipCard__ayZ2p > .osf_flipCardInner__vL29m > .FrontCard2024_card__t_7pj > .flex-column > .row > :nth-child(1) > .FrontCard2024_content__DVJSe > .py-2').click();\ncy.get('.Input_input__kPl3n > div > .px-4').click().type('2009 topps');\ncy.get('.overflow-auto > :nth-child(1) > .d-flex').click();\ncy.get('#value1').type('2');\ncy.get('#check-0-1').check();\ncy.get('.btn-block > .Button_content___KQ5I > span').click();\ncy.get('#firstName').clear().type(this.user.f_Name, {\n  delay: 50\n}).should('have.value', this.user.f_Name);\ncy.get('#lastName').clear().type(this.user.l_Name, {\n  delay: 50\n});\ncy.get('#email').clear().type(this.user.email, {\n  delay: 50\n});\ncy.get('#line1').clear().type(this.user.street_add, {\n  delay: 50\n});\ncy.get('#line2').clear().type(this.user.street_add, {\n  delay: 50\n});\ncy.get('#phone').clear().type(this.user.phone.toString(), {\n  delay: 80\n});\ncy.get('#city').clear().type(this.user.city);\ncy.get('#state').select('United States Virgin Islands');\ncy.get('#zipcode').clear().type(this.user.pin_code);\ncy.get(':nth-child(2) > .form-check-label').click();\ncy.get('.btn-block').click();\ncy.get('#checked-tos').click();\ncy.get('#checked-expiration').click();\ncy.get('#checked-newsletter').click();\ncy.get('.btn-block').click();",
+              "err": {},
+              "uuid": "df3155fa-9f28-45dc-9b30-f2b150400400",
+              "parentUUID": "a1e6f27e-fb59-4660-aa5b-57301050f850",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "df3155fa-9f28-45dc-9b30-f2b150400400"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 24007,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-02-03T09:04:22.085Z",
+    "end": "2026-02-03T09:05:37.714Z",
+    "duration": 75629,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "27cf7f37-1fd3-4c0f-952d-5ab9523f2f70",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\trade\\trade.cy.js",
+      "file": "cypress\\e2e\\beckett\\trade\\trade.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1ff82658-fb7c-4883-842c-abce815f0555",
+          "title": "Create Trade Flow",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "creates a trade successfully",
+              "fullTitle": "Create Trade Flow creates a trade successfully",
+              "timedOut": null,
+              "duration": 18132,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Given the user has tradable items in their collection\ncy.visit('https://www.beckett.com/users/skoul');\ncy.get(':nth-child(2) > #trade_with_user').click();\ncy.get('.buttons > .from_trader_items_button').click();\ncy.wait(8000);\ncy.get('#\\\\31 2000143052400 > [title=\"Add to Trade\"]').click();\ncy.get('[aria-describedby=\"add_to_trade_saving_popup\"] > .ui-dialog-titlebar > .ui-button > .ui-button-icon').click();\ncy.get('div.fright > .back_to_trade').click();\ncy.get('#from_trader_no_items > .to_trader_items_button').click();\ncy.wait(8000);\ncy.get('#\\\\31 2000135838599 > [style=\"text-align:center;\"]').click();\ncy.get('#add_selected_to_trade').click();\ncy.get('[aria-describedby=\"add_to_trade_saving_popup\"] > .ui-dialog-titlebar > .ui-button > .ui-button-icon').click();\ncy.get('div.fright > .back_to_trade').click();\ncy.get('#send_offer_button').click();\ncy.url().should('include', '/trade/index');\ncy.contains('Trade Summary Details').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.buttons > .from_trader_items_button`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find element: `.buttons > .from_trader_items_button`, but never found it.\n    at Context.eval (webpack://beckett-cypress/./cypress/e2e/beckett/trade/trade.cy.js:12:11)",
+                "diff": null
+              },
+              "uuid": "0413e3b8-2dac-49d7-8e42-d389cabd57b1",
+              "parentUUID": "1ff82658-fb7c-4883-842c-abce815f0555",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0413e3b8-2dac-49d7-8e42-d389cabd57b1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18132,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

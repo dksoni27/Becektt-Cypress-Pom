@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T08:51:13.251Z",
+    "end": "2026-02-03T08:51:41.685Z",
+    "duration": 28434,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "21744e1d-c51e-4466-a9c3-46a71c2b2be1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\BMP\\bmpSearch.cy.js",
+      "file": "cypress\\e2e\\beckett\\BMP\\bmpSearch.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "33e9eb4e-d99a-421a-a423-9dec03d45529",
+          "title": "BMP search test ",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "BMP Search",
+              "fullTitle": "BMP search test  BMP Search",
+              "timedOut": null,
+              "duration": 24780,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://marketplace.beckett.com/');\ncy.viewport('macbook-16');\ncy.get('a[aria-label=\"Login\"]').should('be.visible');\ncy.get('input[type=\"radio\"]').should('be.checked');\ncy.get('#siteSearchQuery').should('be.visible').type('2009 topps');\ncy.get('#search_button_opg').should('be.visible').click();\ncy.contains('a', '2009 topps').should('be.visible');\ncy.contains('a', 'Item').should('be.visible').click();\ncy.get('input[name=from]').should('be.visible').type('1');\ncy.get('input[name=to').should('be.visible').type('50');\ncy.get('.apply_ranged_filter').should('be.visible').click();\ncy.contains('a', 'Price').should('be.visible');",
+              "err": {},
+              "uuid": "ecc2126c-cf9d-4066-bea4-ea2f1483a6e4",
+              "parentUUID": "33e9eb4e-d99a-421a-a423-9dec03d45529",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ecc2126c-cf9d-4066-bea4-ea2f1483a6e4"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 24780,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

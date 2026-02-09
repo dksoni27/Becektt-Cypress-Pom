@@ -1,0 +1,32 @@
+{
+  "validUser": {
+    "email": "devendras@beckett.com",
+    "password": "Dksoni@27161627",
+    "f_Name": "dev",
+    "l_Name": "soni",
+    "street_add": "Camden Yards,333 W Camden St",
+    "city": "temp",
+    "pin_code": "123556",
+    "phone": 916767676767,
+    "dob": "06/27/2001",
+    "currency": "Euro",
+    "gender": "Male",
+    "countryCode": "+91"
+  },
+
+  
+  "invalidUser": {
+    "email": "wrong@email.com",
+    "password": "WrongPassword"
+  }, 
+
+  "news": {
+    "news1" :"2025 Topps Royalty UFC Checklist and Details",
+    "news2" :"2025-26 Upper Deck Stature Hockey Details",
+    "news3" :"2025 Football Cards"
+  },
+
+  "password":{
+    "r_pass" : "Abc@qwer123"
+  }
+}

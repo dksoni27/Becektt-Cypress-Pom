@@ -1,0 +1,110 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-02-03T09:05:39.751Z",
+    "end": "2026-02-03T09:09:50.740Z",
+    "duration": 250989,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "22095a90-cfea-4fab-92cb-49c8045d10e1",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\login\\yopmail\\Registration.cy.js",
+      "file": "cypress\\e2e\\beckett\\login\\yopmail\\Registration.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c709f870-4a03-477f-bef1-a72db8f42462",
+          "title": "Beckett Registration + Activation via YOPmail Email Link",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registers and verifies Beckett account via YOPmail activation link",
+              "fullTitle": "Beckett Registration + Activation via YOPmail Email Link Registers and verifies Beckett account via YOPmail activation link",
+              "timedOut": null,
+              "duration": 82199,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "// Step 1: Register on Beckett\ncy.visit('https://www.beckett.com/register');\ncy.get('#regemail').type(email, {\n  force: true\n});\ncy.wait(5000);\ncy.get('#regusername').type(prefix, {\n  force: true\n});\ncy.wait(5000);\ncy.get('#regpassword').type('Test@1234', {\n  force: true\n});\ncy.get(':nth-child(2) > .well > .no_margin').click({\n  force: true\n});\ncy.wait(30000); // Wait to manually solve reCAPTCHA\n// Accept terms\ncy.get('#submitregistration').click({\n  force: true\n});\ncy.wait(15000); // Give time for email to arrive\n// Step 2: Open YOPmail and extract activation link\ncy.origin('https://yopmail.com', {\n  args: {\n    prefix\n  }\n}, ({\n  prefix\n}) => {\n  cy.visit('/en/');\n  cy.get('#login').type(prefix);\n  cy.get('#refreshbut > .md > .material-icons-outlined').click();\n  // Click on Beckett email in inbox iframe\n  cy.get('iframe#ifinbox').then($iframe => {\n    const inboxBody = $iframe[0].contentDocument.body;\n    cy.wrap(inboxBody).contains('Beckett').click();\n  });\n  // Find activation link in email body iframe\n  cy.get('iframe#ifmail').then($iframe => {\n    const mailBody = $iframe[0].contentDocument.body;\n    // Grab activation URL and save in Cypress env\n    cy.wrap(mailBody).find('a').contains(/activate/i).then($link => {\n      const activationLink = $link.prop('href');\n      Cypress.env('activationLink', activationLink);\n    });\n  });\n});\n// Step 3: Open the activation link and confirm account activation\ncy.then(() => {\n  const activationLink = Cypress.env('activationLink');\n  cy.visit(activationLink);\n  cy.get('.vf-btn > .btn').click();\n  cy.contains('Logout').should('exist');\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Beckett' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'Beckett' but never did.\n    at Context.eval (https://www.beckett.com/__cypress/tests?p=cypress\\e2e\\beckett\\login\\yopmail\\Registration.cy.js:139150:20)\n    at tryCatcher (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:5636:23)\n    at Promise.attempt.Promise.try (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:3134:29)\n    at Object.thenFn (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:139126:66)\n    at Object.then (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:139377:21)\n    at wrapped (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:162489:19)\n    at <unknown> (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:168458:15)\n    at tryCatcher (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:5636:23)\n    at Promise._settlePromiseFromHandler (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:3777:31)\n    at Promise._settlePromise (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:3834:18)\n    at Promise._settlePromiseCtx (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:3871:10)\n    at _drainQueueStep (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:876:12)\n    at _drainQueue (https://yopmail.com/__cypress/runner/cypress_cross_origin_runner.js:865:9)",
+                "diff": null
+              },
+              "uuid": "5c52e5ec-c19f-4fd4-9396-b27afea6e539",
+              "parentUUID": "c709f870-4a03-477f-bef1-a72db8f42462",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "5c52e5ec-c19f-4fd4-9396-b27afea6e539"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 82199,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T08:52:29.985Z",
+    "end": "2026-02-03T08:53:09.654Z",
+    "duration": 39669,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "76f4713c-79c4-425a-b979-7aa1aed74bd3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\login\\register.cy.js",
+      "file": "cypress\\e2e\\beckett\\login\\register.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8a20c103-b06b-4d0c-b297-9ac060f98887",
+          "title": "User Registration - Valid Details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should register a user with valid required details",
+              "fullTitle": "User Registration - Valid Details should register a user with valid required details",
+              "timedOut": null,
+              "duration": 39609,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.generatePlusEmail('devendras', 'beckett.com').then(email => {\n  const uniqueUser = `testuser_${Date.now()}`;\n  cy.visit('https://www.beckett.com/register');\n  // Email\n  cy.get('#regemail').type(email);\n  // Username\n  cy.get('#regusername').type(uniqueUser);\n  // Password\n  cy.get('#regpassword').type('StrongPas@123');\n  cy.wait(30000);\n  // It should be disabled or bypassed in test environment\n  // Terms & Email checkbox\n  cy.get('#terms').check();\n  cy.get('#recEmailCheckbox').check();\n  // Submit\n  cy.get('#submitregistration').click();\n});",
+              "err": {},
+              "uuid": "93f33e28-7397-44fa-bb01-ec5686d111b6",
+              "parentUUID": "8a20c103-b06b-4d0c-b297-9ac060f98887",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "93f33e28-7397-44fa-bb01-ec5686d111b6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 39609,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

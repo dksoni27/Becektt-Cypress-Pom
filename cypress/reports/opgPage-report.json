@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-02-03T09:02:38.079Z",
+    "end": "2026-02-03T09:03:45.434Z",
+    "duration": 67355,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ecf85073-040a-433f-bdae-e859d1bc0e53",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\opg\\opgPage.cy.js",
+      "file": "cypress\\e2e\\beckett\\opg\\opgPage.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "75550364-8d8b-4295-9da1-babcc2339f2e",
+          "title": "Beckett opg Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "opg guest checkout test",
+              "fullTitle": "Beckett opg Test opg guest checkout test",
+              "timedOut": null,
+              "duration": 22721,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.generatePlusEmail('devendras', 'beckett.com').then(email => {\n  cy.visit('https://www.beckett.com/opg');\n  cy.get('a[rel=\"Total Access Online Price Guide\"]').should('be.visible').click();\n  cy.get('#menu1 > div.row > div > div.table-box > div > table > tbody > tr:nth-child(5)').should('be.visible').click();\n  cy.get('#subscribe_total_now').should('be.visible').click();\n  cy.get('#onetrust-accept-btn-handler').click();\n  cy.get('#loginEmail').should('be.visible').type(email);\n  cy.get('#guest_account').should('be.checked');\n  cy.get('#send-valid-guest-login-otp').should('be.visible').click();\n  cy.wait(8000);\n  cy.get('#validgusetloginOTP').should('be.visible').click();\n  cy.get('#login_submit').should('be.visible').click();\n});",
+              "err": {},
+              "uuid": "ff6c4c2c-83c4-44d8-aab4-d009fe20e4bf",
+              "parentUUID": "75550364-8d8b-4295-9da1-babcc2339f2e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "opg  checkout using login  test",
+              "fullTitle": "Beckett opg Test opg  checkout using login  test",
+              "timedOut": null,
+              "duration": 12899,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.beckett.com/opg');\ncy.get('a[rel=\"Total Access Online Price Guide\"]').should('be.visible').click();\ncy.get('#menu1 > div.row > div > div.table-box > div > table > tbody > tr:nth-child(5)').should('be.visible').click();\ncy.get('#subscribe_total_now').should('be.visible').click();\ncy.get('#onetrust-accept-btn-handler').click();\ncy.get('#loginEmail').should('be.visible').type(Cypress.env('email'), {\n  force: true\n});\ncy.get('#beckett_account').check({\n  force: true\n});\ncy.get('#loginPassword').should('be.visible').type(Cypress.env('password'), {\n  force: true\n});\ncy.get('#login_submit').should('be.visible').click({\n  force: true\n});\ncy.wait(10000);\ncy.get('#cart_panel_head > .panel-title > .clickdisable').should('be.visible');\ncy.get('div.BtnConTopAbs > a').should('be.visible').click();\ncy.get(':nth-child(13) > .col-md-12 > .btn').should('be.visible').click();",
+              "err": {
+                "message": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type\n    at Context.type (https://www.beckett.com/__cypress/runner/cypress_runner.js:117370:68)\n    at wrapped (https://www.beckett.com/__cypress/runner/cypress_runner.js:146027:19)\n    at <unknown> (https://www.beckett.com/__cypress/runner/cypress_runner.js:151996:15)\n    at tryCatcher (https://www.beckett.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.beckett.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.beckett.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://www.beckett.com/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://www.beckett.com/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://www.beckett.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.beckett.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.beckett.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "0861701b-9660-4308-9fb3-0d4ecfc5ce06",
+              "parentUUID": "75550364-8d8b-4295-9da1-babcc2339f2e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ff6c4c2c-83c4-44d8-aab4-d009fe20e4bf"
+          ],
+          "failures": [
+            "0861701b-9660-4308-9fb3-0d4ecfc5ce06"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 35620,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

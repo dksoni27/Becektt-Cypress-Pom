@@ -1,0 +1,130 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-02-03T09:03:47.506Z",
+    "end": "2026-02-03T09:04:20.323Z",
+    "duration": 32817,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d4332a81-896f-4a66-8d28-78afe88b53c7",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\opg\\opgSearch.cy.js",
+      "file": "cypress\\e2e\\beckett\\opg\\opgSearch.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4d32ee47-2433-497b-bb36-a5d05dd0968d",
+          "title": "Beckett opg search",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "opg search without login ",
+              "fullTitle": "Beckett opg search opg search without login ",
+              "timedOut": null,
+              "duration": 7558,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.beckett.com/opg');\ncy.get('a.btn.borOne', {\n  timeout: 10000\n}).should('be.visible');\ncy.get('#siteSearchQuery').should('be.visible').click();\ncy.url().should('include', '/online-price-guide');\ncy.get('#siteSearchQuery').should('be.visible').type('jordan');\ncy.contains('Please login to search the Beckett Online Price Guide. ').should('be.visible');",
+              "err": {},
+              "uuid": "aaf380fa-8884-4b3f-8299-4b9c22fc6311",
+              "parentUUID": "4d32ee47-2433-497b-bb36-a5d05dd0968d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "opg search with login ",
+              "fullTitle": "Beckett opg search opg search with login ",
+              "timedOut": null,
+              "duration": 6255,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.beckett.com/opg');\ncy.get('div[class=\"LogGridRight\"] a[aria-label=\"Login\"]').should('be.visible').click();\ncy.get('#loginEmail').type(Cypress.env('email'));\ncy.get('#loginPassword', {\n  timeout: 500\n}).type(Cypress.env('password'));\ncy.get('#btn_login').click({\n  force: true\n});\ncy.wait(10000);\ncy.url().should('not.include', '/login');\ncy.url().should('include', '/online-price-guide');\ncy.get('#siteSearchQuery').should('be.visible').click();\ncy.get('#siteSearchQuery').should('be.visible').type('1986 Star Michael Jordan');\ncy.get('#search_button_opg').should('be.visible').click();\ncy.get('.bi.bi-filter').should('be.visible').click();\ncy.get('label[for=set_id1]').should('be.visible').click();",
+              "err": {
+                "message": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type",
+                "estack": "CypressError: `cy.type()` can only accept a string or number. You passed in: `undefined`\n\nhttps://on.cypress.io/type\n    at Context.type (https://www.beckett.com/__cypress/runner/cypress_runner.js:117370:68)\n    at wrapped (https://www.beckett.com/__cypress/runner/cypress_runner.js:146027:19)\n    at <unknown> (https://www.beckett.com/__cypress/runner/cypress_runner.js:151996:15)\n    at tryCatcher (https://www.beckett.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise._settlePromiseFromHandler (https://www.beckett.com/__cypress/runner/cypress_runner.js:1489:31)\n    at Promise._settlePromise (https://www.beckett.com/__cypress/runner/cypress_runner.js:1546:18)\n    at Promise._settlePromiseCtx (https://www.beckett.com/__cypress/runner/cypress_runner.js:1583:10)\n    at _drainQueueStep (https://www.beckett.com/__cypress/runner/cypress_runner.js:2381:12)\n    at _drainQueue (https://www.beckett.com/__cypress/runner/cypress_runner.js:2370:9)\n    at Async._drainQueues (https://www.beckett.com/__cypress/runner/cypress_runner.js:2386:5)\n    at Async.drainQueues (https://www.beckett.com/__cypress/runner/cypress_runner.js:2256:14)",
+                "diff": null
+              },
+              "uuid": "09f78f75-c74b-47fe-9a7a-542b1bd3703b",
+              "parentUUID": "4d32ee47-2433-497b-bb36-a5d05dd0968d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "aaf380fa-8884-4b3f-8299-4b9c22fc6311"
+          ],
+          "failures": [
+            "09f78f75-c74b-47fe-9a7a-542b1bd3703b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 13813,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

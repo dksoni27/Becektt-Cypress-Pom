@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T08:48:22.216Z",
+    "end": "2026-02-03T08:49:06.210Z",
+    "duration": 43994,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d6506c59-f1aa-454d-a78f-12ae9785db80",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\BAS\\sso_bas.cy.js",
+      "file": "cypress\\e2e\\beckett\\BAS\\sso_bas.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "da456bcc-7f60-414f-a4a2-92ce79440cce",
+          "title": "Beckett Authentication SSO",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should open Authentication site with SSO (no re-login)",
+              "fullTitle": "Beckett Authentication SSO should open Authentication site with SSO (no re-login)",
+              "timedOut": null,
+              "duration": 43791,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Visit Beckett\ncy.visit('https://www.beckett.com/login');\n// Verify already logged in\ncy.url().should('not.include', '/login');\ncy.contains('Logout', {\n  timeout: 10000\n}).should('be.visible');\n// Open menu\ncy.get('.navbar-toggler-icon').should('be.visible').click();\n// Click Authentication (force same tab)\ncy.get('.me-auto > [href=\"https://www.beckett-authentication.com/\"]').should('be.visible').invoke('removeAttr', 'target').click();\n// Switch to Authentication origin\ncy.origin('https://www.beckett-authentication.com', () => {\n  cy.contains('Login').should('not.exist');\n});",
+              "err": {},
+              "uuid": "cf9fd00a-7959-42ef-9138-7c48ccfa4735",
+              "parentUUID": "da456bcc-7f60-414f-a4a2-92ce79440cce",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cf9fd00a-7959-42ef-9138-7c48ccfa4735"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 43791,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-02-03T08:56:50.306Z",
+    "end": "2026-02-03T08:58:06.375Z",
+    "duration": 76069,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "84dbf7f9-e7c2-4c20-832b-2bdcd16add9e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\beckett\\bca\\bcaSearch.cy.js",
+      "file": "cypress\\e2e\\beckett\\bca\\bcaSearch.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "bb14ec88-bd17-44a1-8997-d8cfe914c95e",
+          "title": "Beckett bca order  Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "BCA search",
+              "fullTitle": "Beckett bca order  Test BCA search",
+              "timedOut": null,
+              "duration": 76003,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"https://www.beckett.com/bca\");\ncy.get('.container > .ServiceSlot > .serSec > .sendBtn > .currency_alert').click();\n//login verification \ncy.url().should('include', '/bca/add');\n//creat a order \ncy.get('select[name=\"service_term\"]').select('2').should('have.value', '2');\ncy.wait(8000);\n// search 1871 Boston Red Stockings Wright Cabinets #NNO Harry Schafer\ncy.get('input[name=\"search_text\"]').should('be.visible').type('1871 Boston Red Stockings Wright Cabinets #NNO Harry Schafer');\ncy.wait(8000);\ncy.get('#search_submit').should('be.visible').click();\ncy.wait(8000);\ncy.get('li[title=\"1871 Boston Red Stockings Wright Cabinets #NNO Harry Schafer\"]').should('be.visible');\ncy.get('img[alt=\"Remove\"]').first().click();\n/// search 2009\ncy.get('input[name=\"search_text\"]').should('be.visible').type('2009');\ncy.wait(8000);\ncy.get('#search_submit').should('be.visible').click();\ncy.wait(8000);",
+              "err": {},
+              "uuid": "731c424a-0460-49d3-9c9d-f912066f0fdd",
+              "parentUUID": "bb14ec88-bd17-44a1-8997-d8cfe914c95e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "731c424a-0460-49d3-9c9d-f912066f0fdd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 76003,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "[name]-report",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportFilename": "[name]-report"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
